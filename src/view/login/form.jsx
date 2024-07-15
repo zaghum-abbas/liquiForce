@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import * as Yup from "yup";
@@ -9,8 +9,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [checked, setChecked] = useState(false);
   const handleSubmit = (values, { setSubmitting }) => {
-    // Handle form submission
     console.log(values);
     setSubmitting(false);
   };
@@ -18,6 +18,11 @@ const LoginForm = () => {
     console.log("calling");
     setShowPassword((pre) => !pre);
   };
+  const handleCheckedChange = (e) => {
+    console.log("E", e);
+    setChecked(e);
+  };
+
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
@@ -27,32 +32,34 @@ const LoginForm = () => {
       {({ isSubmitting, handleChange, errors, touched }) => (
         <Form>
           <div className="mb-6 relative">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 cursor-pointer">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-5 cursor-pointer">
               <EmailIcon />
             </div>
             <Input
               type="email"
               name="email"
               error={touched.email && errors.email}
-              placeholder="Email"
-              className="w-full pl-10"
+              placeholder="Email your email address"
+              className="w-full pl-[59px]"
               onChange={handleChange}
             />
           </div>
 
           <div className="mb-5 relative">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 cursor-pointer">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-5  cursor-pointer">
               <LockIcon />
             </div>
             <Input
               id="password"
               name="password"
+              placeholder="Enter your Password"
               type={showPassword ? "text" : "password"}
+              error={touched.password && errors.password}
               autoComplete="current-password"
-              className="w-full pl-10"
+              className="w-full pl-[59px]"
             />
             <div
-              className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+              className="absolute inset-y-0 right-0 flex items-center pr-5 cursor-pointer"
               onClick={handleShow}
             >
               {showPassword ? (
@@ -69,15 +76,14 @@ const LoginForm = () => {
                 />
               )}
             </div>
-            <ErrorMessage
-              name="password"
-              component="div"
-              className="text-red-600 text-sm"
-            />
           </div>
+
           <div className="flex items-center justify-between mb-[60px]">
             <div className="flex items-center">
-              <Checkbox />
+              <Checkbox
+                checked={checked}
+                onCheckedChange={handleCheckedChange}
+              />
               <label className="block  font-normal leading-6 text-darkgrey text-[16px] ml-[10px]">
                 Remember me?
               </label>
@@ -94,7 +100,7 @@ const LoginForm = () => {
             disabled={isSubmitting}
             variant={"outline"}
           >
-            Login
+            Sign In
           </Button>
         </Form>
       )}
@@ -102,13 +108,8 @@ const LoginForm = () => {
   );
 };
 
-// Define the validation schema using Yup with custom error messages
 const LoginSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("Please enter a valid email address")
-    .required("Email required"),
-  password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password required"),
+  email: Yup.string().required("Email required"),
+  password: Yup.string().required("Password required"),
 });
 export default LoginForm;

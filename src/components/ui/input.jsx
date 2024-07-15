@@ -7,14 +7,14 @@ const Input = React.forwardRef(({ className, type, error, ...props }, ref) => {
       <input
         type={type}
         className={cn(
-          "flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none",
-          error ? "border-red-500" : "border-input",
+          "flex h-[67px] w-full rounded-[14px] border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none",
+          error ? "border-negative" : "border-input",
           className
         )}
         ref={ref}
         {...props}
       />
-      {error && <div className="text-red-500 mt-2 text-sm">{error}</div>}
+      <div className="absolute text-negative mt-1 text-sm">{error}</div>
     </div>
   );
 });

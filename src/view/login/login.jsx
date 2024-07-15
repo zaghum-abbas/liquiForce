@@ -8,7 +8,7 @@ const LoginPage = () => {
   const splashTextFirst = "Hi, Ric Garnar";
   const splashTextScound = "Welcome to LiquiFORCE!";
   return (
-    <div className="grid grid-cols-12 gap-4 min-h-screen">
+    <div className="grid grid-cols-12 min-h-screen">
       {/* Left side with colored background */}
       <div className="col-span-6 bg-primary">
         <SharedComponent
@@ -19,9 +19,9 @@ const LoginPage = () => {
 
       {/* Right side with form */}
 
-      <div className="col-span-6 bg-white flex justify-center items-center">
-        <div className="w-full max-w-[742px]">
-          <div className="bg-card rounded-20 border py-[60px] px-[148px] border-solid border-[#E9E9E9]">
+      <div className="col-span-6 bg-white flex justify-center items-center ">
+        <div className="w-full">
+          <div className="bg-card rounded-[20px] border py-[60px] px-[148px] border-solid border-[#E9E9E9] mt-[132px] mb-[71px] mr-20 ml-[148px]">
             <h1 className="text-4xl font-semibold text-black mb-6 text-center">
               Sign In
             </h1>
@@ -53,6 +53,14 @@ const LoginPage = () => {
                 <Image src={Linkedin} alt="linkedin" width={30} height={30} />
               </div>
             </div>
+          </div>
+          <div className="w-full h-[41px] border-t border-solid border-t-cardstroke  mb-5 flex justify-center space-x-10 items-end">
+            <span className="font-normal text-sm underline text-darkgrey">
+              Privacy Policy
+            </span>
+            <span className="font-normal text-sm underline text-darkgrey">
+              Terms & Conditions
+            </span>
           </div>
         </div>
       </div>
