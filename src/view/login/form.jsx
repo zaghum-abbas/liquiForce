@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import * as Yup from "yup";
 import { EmailIcon, HideIcon, LockIcon, ShowIcon } from "../../../public/Icons";
 import { Checkbox } from "@/components/ui/checkbox";
+import Link from "next/link";
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,11 +16,9 @@ const LoginForm = () => {
     setSubmitting(false);
   };
   const handleShow = () => {
-    console.log("calling");
     setShowPassword((pre) => !pre);
   };
   const handleCheckedChange = (e) => {
-    console.log("E", e);
     setChecked(e);
   };
 
@@ -32,7 +31,7 @@ const LoginForm = () => {
       {({ isSubmitting, handleChange, errors, touched }) => (
         <Form>
           <div className="mb-6 relative">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-5 cursor-pointer">
+            <div className="absolute inset-y-0 left-0 pl-5  flex items-center cursor-pointer">
               <EmailIcon />
             </div>
             <Input
@@ -40,7 +39,7 @@ const LoginForm = () => {
               name="email"
               error={touched.email && errors.email}
               placeholder="Email your email address"
-              className="w-full pl-[59px]"
+              className="w-full pl-14"
               onChange={handleChange}
             />
           </div>
@@ -55,8 +54,7 @@ const LoginForm = () => {
               placeholder="Enter your Password"
               type={showPassword ? "text" : "password"}
               error={touched.password && errors.password}
-              autoComplete="current-password"
-              className="w-full pl-[59px]"
+              className="w-full pl-14"
             />
             <div
               className="absolute inset-y-0 right-0 flex items-center pr-5 cursor-pointer"
@@ -65,13 +63,11 @@ const LoginForm = () => {
               {showPassword ? (
                 <HideIcon
                   className="h-6 w-6 text-gray-400 cursor-pointer"
-                  // onClick={handleShow}
                   aria-hidden="true"
                 />
               ) : (
                 <ShowIcon
                   className="h-6 w-6 text-gray-400 cursor-pointer"
-                  // onClick={handleShow}
                   aria-hidden="true"
                 />
               )}
@@ -84,21 +80,25 @@ const LoginForm = () => {
                 checked={checked}
                 onCheckedChange={handleCheckedChange}
               />
-              <label className="block  font-normal leading-6 text-darkgrey text-[16px] ml-[10px]">
+              <label className="block font-normal leading-6 text-darkgrey md:text-base text-sm ml-[10px]">
                 Remember me?
               </label>
             </div>
             <div className="text-sm">
-              <a href="#" className="font-medium text-negative text-[16px]">
+              <Link
+                href={"/forgot_password"}
+                className="md:font-medium font-normal  text-negative md:text-base text-sm"
+              >
                 Forgot password?
-              </a>
+              </Link>
             </div>
           </div>
           <Button
             type="submit"
-            className="w-full bg-primary mb-[60px]"
+            className="w-full bg-primary mb-[60px] "
             disabled={isSubmitting}
-            variant={"outline"}
+            variant="outline"
+            size="sm"
           >
             Sign In
           </Button>

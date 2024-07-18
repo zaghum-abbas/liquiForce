@@ -1,67 +1,68 @@
-import SharedComponent from "@/components/shared/splashScreen/splashScreen";
-import React from "react";
-import LoginForm from "./form";
+"use client";
+import React, { useState } from "react";
 import Image from "next/legacy/image";
 import Google from "../../../public/images/google.png";
 import Linkedin from "../../../public/images/linkedin.png";
+import LoginForm from "./form";
 const LoginPage = () => {
-  const splashTextFirst = "Hi, Ric Garnar";
-  const splashTextScound = "Welcome to LiquiFORCE!";
   return (
-    <div className="grid grid-cols-12 min-h-screen">
-      {/* Left side with colored background */}
-      <div className="col-span-6 bg-primary">
-        <SharedComponent
-          splashTextFirst={splashTextFirst}
-          splashTextScound={splashTextScound}
-        />
-      </div>
-
-      {/* Right side with form */}
-
-      <div className="col-span-6 bg-white flex justify-center items-center ">
-        <div className="w-full">
-          <div className="bg-card rounded-[20px] border py-[60px] px-[148px] border-solid border-[#E9E9E9] mt-[132px] mb-[71px] mr-20 ml-[148px]">
-            <h1 className="text-4xl font-semibold text-black mb-6 text-center">
-              Sign In
-            </h1>
-            <p className="text-center mb-16">
-              <span className="text-darkgrey">New user?</span>{" "}
-              <span className="text-primary">Create an Account</span>{" "}
-            </p>
-            <LoginForm />
-            <div className="flex items-center justify-center space-x-4 mb-6">
-              <div className="w-full h-[1px] bg-gray-300"></div> {/* Divider */}
-              <p className="text-gray-500 text-sm">or</p>
-              <div className="w-full h-[1px] bg-gray-300"></div> {/* Divider */}
-            </div>
-            <h3 className="text-center text-black font-medium text-lg mb-6">
-              Sign In with
-            </h3>
-            <div className="flex items-center space-x-4 justify-center">
-              <div className="w-[60px] h-[60px] rounded-full border border-solid border-gray-300 relative flex items-center justify-center">
-                <Image
-                  src={Google}
-                  alt="google"
-                  width={30}
-                  height={30}
-                  className="absolute"
-                />
+    <div className="bg-white">
+      <div className="flex flex-col justify-between items-center h-full w-full">
+        <div className="max-md:hidden"></div>
+        <div className="md:px-10  pt-[74px] md:pt-[130px] pb-[70px] w-full md:max-w-[742px]  max-w-[361px] mx-auto flex">
+          <div className="w-full md:bg-card md:rounded-[20px] md:border border-solid border-[#E9E9E9]">
+            <div className="max-w-[446px] my-[60px] mx-auto md:px-5">
+              <h1 className="md:text-4xl text-2xl font-semibold text-black mb-[10px] text-center">
+                Sign In
+              </h1>
+              <p className="text-center md:mb-16 md:font-medium  mb-[60px] md:text-xl text-base ">
+                <span className="text-darkgrey">New user?</span>{" "}
+                <span className="text-primary">Create an Account</span>{" "}
+              </p>
+              <LoginForm />
+              <div className="flex items-center justify-center space-x-4 md:mb-6 mb-[60px]">
+                <div className="w-full h-[1px] bg-gray-300"></div>
+                <p className="text-gray-500  md:text-base text-sm">or</p>
+                <div className="w-full h-[1px] bg-gray-300"></div>
               </div>
+              <h3 className="text-center text-black font-medium md:text-lg text-base  mb-6">
+                Sign In with
+              </h3>
+              <div className="flex items-center space-x-4 justify-center">
+                <div className="w-12 h-12  md:w-[60px] md:h-[60px] rounded-full border border-solid border-gray-300 relative flex items-center justify-center">
+                  <div className="flex md:max-w-[30px] md:max-h-[30px] max-w-6 max-h-6">
+                    <Image
+                      src={Google}
+                      alt="google"
+                      width={30}
+                      height={30}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
 
-              <div className="w-[60px] h-[60px] rounded-full border border-solid border-gray-300 relative flex items-center justify-center">
-                <Image src={Linkedin} alt="linkedin" width={30} height={30} />
+                <div className="w-12 h-12   md:w-[60px] md:h-[60px] rounded-full border border-solid border-gray-300 relative flex items-center justify-center">
+                  <div className="flex md:max-w-[30px] md:max-h-[30px] max-w-6 max-h-6">
+                    <Image
+                      src={Linkedin}
+                      alt="linkedin"
+                      width={30}
+                      height={30}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div className="w-full h-[41px] border-t border-solid border-t-cardstroke  mb-5 flex justify-center space-x-10 items-end">
-            <span className="font-normal text-sm underline text-darkgrey">
-              Privacy Policy
-            </span>
-            <span className="font-normal text-sm underline text-darkgrey">
-              Terms & Conditions
-            </span>
-          </div>
+        </div>
+        <div className="max-md:hidden w-full h-[41px] border-t border-solid border-gray-300 mt-6 flex justify-center space-x-10 items-center">
+          <span className="font-normal text-sm underline text-darkgrey cursor-pointer">
+            Privacy Policy
+          </span>
+          <span className="font-normal text-sm underline text-darkgrey cursor-pointer">
+            Terms & Conditions
+          </span>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
-import LoginPage from "@/view/login/login";
+import Index from "@/view/login";
 
 export default function SignInPage() {
-  return <LoginPage />;
+  return <Index />;
 }

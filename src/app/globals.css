@@ -12,8 +12,11 @@ body {
   :root {
     --light-grey: #d6d6d6;
     --dark-grey: #7b7b7b;
+    --secondary-button: 0, 0%, 96%, 1;
     --background: 0 0% 100%;
     --negative: #ff6666;
+    --medium: 36, 100%, 56%, 1;
+    --positive: 124, 42%, 57%, 1;
     --foreground: 222.2 84% 4.9%;
     --card: 0, 0%, 98.43%;
     --card-foreground: 222.2 84% 4.9%;
