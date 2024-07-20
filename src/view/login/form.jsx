@@ -95,7 +95,7 @@ const LoginForm = () => {
           </div>
           <Button
             type="submit"
-            className="w-full bg-primary mb-[60px] "
+            className="w-full bg-primary mb-[60px]"
             disabled={isSubmitting}
             variant="outline"
             size="sm"

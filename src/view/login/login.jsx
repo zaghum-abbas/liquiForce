@@ -4,26 +4,29 @@ import Image from "next/legacy/image";
 import Google from "../../../public/images/google.png";
 import Linkedin from "../../../public/images/linkedin.png";
 import LoginForm from "./form";
+import Link from "next/link";
 const LoginPage = () => {
   return (
     <div className="bg-white">
       <div className="flex flex-col justify-between items-center h-full w-full">
         <div className="max-md:hidden"></div>
-        <div className="md:px-10  pt-[74px] md:pt-[130px] pb-[70px] w-full md:max-w-[742px]  max-w-[361px] mx-auto flex">
+        <div className="md:px-10  mt-[74px] md:mt-[130px]  md:mb-[70px] w-full md:max-w-[742px]  max-w-[361px] mx-auto flex">
           <div className="w-full md:bg-card md:rounded-[20px] md:border border-solid border-[#E9E9E9]">
-            <div className="max-w-[446px] my-[60px] mx-auto md:px-5">
+            <div className="max-w-[446px] md:my-[60px] mx-auto md:px-5">
               <h1 className="md:text-4xl text-2xl font-semibold text-black mb-[10px] text-center">
                 Sign In
               </h1>
               <p className="text-center md:mb-16 md:font-medium  mb-[60px] md:text-xl text-base ">
                 <span className="text-darkgrey">New user?</span>{" "}
-                <span className="text-primary">Create an Account</span>{" "}
+                <Link href={"/join-us"}>
+                  <span className="text-primary">Create an Account</span>{" "}
+                </Link>{" "}
               </p>
               <LoginForm />
               <div className="flex items-center justify-center space-x-4 md:mb-6 mb-[60px]">
-                <div className="w-full h-[1px] bg-gray-300"></div>
+                <div className="w-full h-[1px] bg-cardstroke"></div>
                 <p className="text-gray-500  md:text-base text-sm">or</p>
-                <div className="w-full h-[1px] bg-gray-300"></div>
+                <div className="w-full h-[1px] bg-cardstroke"></div>
               </div>
               <h3 className="text-center text-black font-medium md:text-lg text-base  mb-6">
                 Sign In with

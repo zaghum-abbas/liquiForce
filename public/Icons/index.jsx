@@ -113,3 +113,47 @@ export const ArrowStroke = () => {
     </svg>
   );
 };
+export const PersonIcon = () => {
+  return (
+    <svg
+      width="18"
+      height="19"
+      viewBox="0 0 18 19"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16.7274 17.447C16.2724 16.171 15.2674 15.044 13.8704 14.24C12.4734 13.436 10.7614 13 9.00044 13C7.23944 13 5.52744 13.436 4.13044 14.24C2.73344 15.044 1.72844 16.171 1.27344 17.447"
+        stroke="#7B7B7B"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M9 9C11.2091 9 13 7.20914 13 5C13 2.79086 11.2091 1 9 1C6.79086 1 5 2.79086 5 5C5 7.20914 6.79086 9 9 9Z"
+        stroke="#7B7B7B"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+};
+export const TickIcon = () => {
+  return (
+    <svg
+      width="24"
+      height="25"
+      viewBox="0 0 24 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect y="0.5" width="24" height="24" rx="12" fill="#62BF68" />
+      <path
+        d="M7 12.0261L10.2784 16.5L17 8.5"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
