@@ -5,7 +5,7 @@ const Splash = ({ onNext }) => {
   return (
     <SharedComponent>
       <div className="px-4">
-        <div className="text-center grid place-items-center mb-[120px]">
+        <div className="text-center grid place-items-center ">
           <h1 className="font-bold text-white xl:text-[48px] lg:text-[38px] md:text-3xl  block xl:leading-[72px] lg:leading-[65px]">
             <span className="hidden md:block">Hi, Ric Garnar</span>
             <span>Welcome to LiquiFORCE!</span>
@@ -23,7 +23,7 @@ const Splash = ({ onNext }) => {
         </div>
         {/* Continue Button */}
         <Button
-          className="bg-[#193465] border-none self-center w-full block md:hidden  place-self-center"
+          className="bg-[#193465] border-none self-center w-full block md:hidden  place-self-center mt-[120px]"
           variant={"outline"}
           size="sm"
           onClick={onNext}

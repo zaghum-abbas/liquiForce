@@ -5,14 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { EmailIcon } from "../../../public/Icons";
-
 import { useRouter } from "next/navigation";
 
 const RecoverPassword = () => {
   const router = useRouter();
   console.log("router", router);
   const handleSubmit = (values) => {
-    router.push({});
+    router.push("/verification-code");
+
     console.log("values", values);
   };
   return (

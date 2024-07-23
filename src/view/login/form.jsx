@@ -28,7 +28,7 @@ const LoginForm = () => {
       validationSchema={LoginSchema}
       onSubmit={handleSubmit}
     >
-      {({ isSubmitting, handleChange, errors, touched }) => (
+      {({ isSubmitting, handleChange, errors, values, touched }) => (
         <Form>
           <div className="mb-6 relative">
             <div className="absolute inset-y-0 left-0 pl-5  flex items-center cursor-pointer">
@@ -37,6 +37,7 @@ const LoginForm = () => {
             <Input
               type="email"
               name="email"
+              value={values.email}
               error={touched.email && errors.email}
               placeholder="Email your email address"
               className="w-full pl-14"
@@ -51,10 +52,12 @@ const LoginForm = () => {
             <Input
               id="password"
               name="password"
+              value={values.password}
               placeholder="Enter your Password"
               type={showPassword ? "text" : "password"}
               error={touched.password && errors.password}
               className="w-full pl-14"
+              onChange={handleChange}
             />
             <div
               className="absolute inset-y-0 right-0 flex items-center pr-5 cursor-pointer"

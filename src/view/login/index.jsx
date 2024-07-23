@@ -14,17 +14,7 @@ const Index = () => {
       case 0:
         return <Splash onNext={() => setStep(1)} />;
       case 1:
-        return (
-          <div
-            className={`transition-transform duration-1000 ease-in-out transform ${
-              step === 0
-                ? "-translate-x-full md:translate-x-0"
-                : "translate-x-0"
-            }`}
-          >
-            <LoginPage />
-          </div>
-        );
+        return <LoginPage />;
 
       default:
         return null;

@@ -1,18 +1,23 @@
 "use client";
 import Image from "next/legacy/image";
 import logo from "../../../public/images/generalLogo.png";
-import { ArrowStroke } from "../../../public/Icons";
+import { ArrowStrokeLeft } from "../../../public/Icons";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-
+import bottomLogo from "../../../public/images/splashScreen.png";
 const Authcard = ({ children, link, cardCenter }) => {
   const pathname = usePathname();
   return (
     <div
-      className={`flex flex-col  md:justify-between    ${
+      className={`flex flex-col md:justify-between    ${
         cardCenter && "justify-between"
       }   h-screen`}
     >
+      {/* <div
+      className={`flex flex-col  md:justify-between    ${
+        cardCenter && "justify-between"
+      }   h-screen`}
+    > */}
       <div>
         <div className="md:mt-[60px] md:ml-[80px] max-md:hidden">
           <Image src={logo} alt="Logo" width={193} height={48} />
@@ -21,11 +26,11 @@ const Authcard = ({ children, link, cardCenter }) => {
           (pathname === "/email-verified" ? (
             ""
           ) : (
-            <Link href={link}>
-              <div className="md:w-8 md:h-8 w-6 h-6 md:ml-[80px] md:mt-[60px] ml-[16px] mt-[70px] border border-solid rounded-[20px] border-cardstroke flex justify-center items-center cursor-pointer">
-                <ArrowStroke />
-              </div>
-            </Link>
+            // <Link href={link}>
+            <div className="md:w-8 md:h-8 w-6 h-6 md:ml-[80px] md:mt-[60px] ml-[16px] mt-[70px] border border-solid rounded-[20px] border-cardstroke flex justify-center items-center cursor-pointer">
+              <ArrowStrokeLeft />
+            </div>
+            // </Link>
           ))}
       </div>
 

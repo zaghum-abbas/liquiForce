@@ -18,7 +18,7 @@ body {
     --medium: 36, 100%, 56%, 1;
     --positive: 124, 42%, 57%, 1;
     --foreground: 222.2 84% 4.9%;
-    --card: 0, 0%, 98.43%;
+    --card: 0, 0%, 98%;
     --card-foreground: 222.2 84% 4.9%;
     --card-stroke: 0, 0%, 91%, 1;
     --black: #333333;
@@ -34,7 +34,7 @@ body {
     --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
+    --border: 0, 0%, 91%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
