@@ -1,10 +1,9 @@
 "use client";
 import Image from "next/legacy/image";
 import logo from "../../../public/images/generalLogo.png";
-
 import bottomLogo from "../../../public/images/splashScreen.png";
 
-const ProfileCreation = ({ children, link, cardCenter }) => {
+const Questionnaire = ({ children, link, cardCenter }) => {
   return (
     <div className={`flex flex-col justify-between h-screen`}>
       <div className="xl:mt-[60px] xl:ml-[80px] lg:mt-[60px] lg:ml-[70px] md:mt-[50px] md:ml-[60px]  max-md:hidden">
@@ -23,4 +22,4 @@ const ProfileCreation = ({ children, link, cardCenter }) => {
   );
 };
 
-export default ProfileCreation;
+export default Questionnaire;

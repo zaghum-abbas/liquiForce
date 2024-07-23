@@ -13,11 +13,8 @@ import {
   TimeIcon,
   TrainedWorkerIcon,
   TrendingIcon,
-} from "../../../public/Icons";
-import QuestionFour from "./components/questionFour";
-import QuestionOne from "./components/questionOne";
-import QuestionThree from "./components/questionThree";
-import QuestionTwo from "./components/questionTwo";
+} from "../../../../public/Icons";
+import Questions from "./questions";
 
 export const steps = [
   {
@@ -41,7 +38,7 @@ export const steps = [
       },
     ],
     type: "card",
-    component: QuestionOne,
+    component: Questions,
   },
 
   {
@@ -69,7 +66,7 @@ export const steps = [
       },
     ],
     type: "card",
-    component: QuestionTwo,
+    component: Questions,
   },
   {
     id: 4,
@@ -165,7 +162,7 @@ export const steps = [
         icon: SalesIcon,
       },
     ],
-    component: QuestionThree,
+    component: Questions,
   },
   {
     id: 5,
@@ -187,6 +184,6 @@ export const steps = [
       },
     ],
     type: "card",
-    component: QuestionFour,
+    component: Questions,
   },
 ];

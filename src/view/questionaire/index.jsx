@@ -1,20 +1,57 @@
 "use client";
-import ProfileCreation from "@/components/shared/profileCreation";
+import Questionnaire from "@/components/shared/questionnaire";
 import { Button } from "@/components/ui/button";
 import { Card, CardFooter } from "@/components/ui/card";
 import { ArrowForwardIcon, ArrowBackIcon } from "../../../public/Icons";
 import { useState } from "react";
-import { steps } from "./steps";
+import { steps } from "./components/steps";
 import { cn } from "@/lib/utils";
+import QuestionnaireCompleted from "./components/questionnaireCompleted";
+
 const QuestionairePage = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [isSubmit, setIsSubmit] = useState(0);
   const [values, setValues] = useState({
     questionOne: "",
+    questionTwo: "",
+    questionThree: [],
+    questionFour: "",
   });
-
+  const [error, setError] = useState("");
   const handleNext = () => {
     setIsSubmit(0);
+    // let errorMessage = "";
+    // switch (activeStep) {
+    //   case 0:
+    //     if (!values.questionOne) {
+    //       errorMessage = "Please select at least one option for question one.";
+    //     }
+    //     break;
+    //   case 1:
+    //     if (!values.questionTwo) {
+    //       errorMessage = "Please select at least one option for question two.";
+    //     }
+    //     break;
+    //   case 2:
+    //     if (!values.questionThree || values.questionThree.length === 0) {
+    //       errorMessage =
+    //         "Please select at least one option for question three.";
+    //     }
+    //     break;
+    //   case 3:
+    //     if (!values.questionFour) {
+    //       errorMessage =
+    //         "Please select at least one option for question three.";
+    //     }
+    //     break;
+    //   default:
+    //     break;
+    // }
+    // if (errorMessage) {
+    //   setError(errorMessage);
+    //   return;
+    // }
+    setError("");
     if (activeStep + 1 === steps.length) {
       setActiveStep(0);
     } else {
@@ -24,17 +61,18 @@ const QuestionairePage = () => {
 
   const handleBack = () => {
     setIsSubmit(0);
+    setError("");
     if (activeStep > 0) {
       setActiveStep((prev) => prev - 1);
     }
   };
 
   const handleSubmit = () => {
-    console.log("values", values);
+    <QuestionnaireCompleted />;
   };
-
+  console.log("values", values);
   return (
-    <ProfileCreation>
+    <Questionnaire>
       <div className="md:mt-[76px] mt-[114px] w-full lg:max-w-[870px] md:max-w-[790px] max-w-[361px] mx-auto md:px-5 px-[10px]">
         <Card className="w-full xl:p-[60px] lg:p-11 md:p-5  mx-auto py-5 px-4">
           <div className="max-md:block flex items-center justify-between">
@@ -42,12 +80,12 @@ const QuestionairePage = () => {
               className={`max-md:hidden text-darkgrey md:w-9 md:h-9 w-6 h-6 border-2 border-solid rounded-[20px] border-cardstroke flex items-center justify-center cursor-pointer ${
                 activeStep === 0 ? "" : "hover:text-white hover:bg-primary"
               }`}
+              onClick={handleBack}
             >
               <button
                 className={`${
                   activeStep === 0 ? "opacity-50 cursor-not-allowed" : ""
                 }`}
-                onClick={handleBack}
                 disabled={activeStep === 0}
               >
                 <ArrowBackIcon className="w-[6px] h-3" />
@@ -63,10 +101,12 @@ const QuestionairePage = () => {
                       options={comp.options}
                       questionTitle={comp.questionTitle}
                       questionBody={comp.questionBody}
+                      type={comp.type}
                       values={values}
                       isOk={setValues}
                       next={() => handleNext()}
                       isSubmit={isSubmit}
+                      error={error}
                     />
                   )
               )}
@@ -82,22 +122,20 @@ const QuestionairePage = () => {
                   </div>
                 ))}
               </div>
-              {activeStep + 1 === steps.length ? (
-                <Button
-                  className=" bg-primary self-center w-full mt-7 "
-                  variant={"outline"}
-                  size="sm"
-                  onClick={() => {
-                    activeStep >= 3
-                      ? handleSubmit()
-                      : setIsSubmit(isSubmit + 1);
-                  }}
-                >
-                  Submit
-                </Button>
-              ) : (
+              {/* {activeStep + 1 === steps.length ? ( */}
+              <Button
+                className=" bg-primary self-center w-full mt-7 "
+                variant={"outline"}
+                size="sm"
+                onClick={() => {
+                  activeStep >= 3 ? handleSubmit() : setIsSubmit(isSubmit + 1);
+                }}
+              >
+                Submit
+              </Button>
+              {/* ) : (
                 ""
-              )}
+              )} */}
             </div>
 
             <div
@@ -106,6 +144,7 @@ const QuestionairePage = () => {
                   ? ""
                   : "hover:text-white hover:bg-primary"
               }`}
+              onClick={handleNext}
             >
               <button
                 className={`${
@@ -113,7 +152,6 @@ const QuestionairePage = () => {
                     ? "opacity-50 cursor-not-allowed"
                     : ""
                 }`}
-                onClick={handleNext}
                 disabled={activeStep === steps.length - 1}
               >
                 <ArrowForwardIcon className="w-[6px] h-3 " />
@@ -122,7 +160,7 @@ const QuestionairePage = () => {
           </div>
         </Card>
       </div>
-    </ProfileCreation>
+    </Questionnaire>
   );
 };
 

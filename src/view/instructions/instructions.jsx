@@ -1,4 +1,4 @@
-import ProfileCreation from "@/components/shared/profileCreation";
+import Questionnaire from "@/components/shared/Questionnaire";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,7 +11,7 @@ import {
 import { ArrowStrokeRight } from "../../../public/Icons";
 const InstructionsPage = () => {
   return (
-    <ProfileCreation>
+    <Questionnaire>
       <div className="md:px-10 md:mt-[76px]  w-full xl:max-w-[870px] lg:max-w-[692px] md:max-w-[680px] max-w-[361px] mx-auto px-1">
         <Card className="w-full px-4">
           <div className="max-w-[438px] md:my-[60px] my-[60px] mx-auto">
@@ -52,7 +52,7 @@ const InstructionsPage = () => {
           </div>
         </Card>
       </div>
-    </ProfileCreation>
+    </Questionnaire>
   );
 };
 export default InstructionsPage;
