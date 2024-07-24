@@ -5,13 +5,14 @@ import Google from "../../../public/images/google.png";
 import Linkedin from "../../../public/images/linkedin.png";
 import LoginForm from "./form";
 import Link from "next/link";
+import { Card } from "@/components/ui/card";
 const LoginPage = () => {
   return (
     <div className="bg-white flex flex-col justify-between items-center h-full w-full">
       <div className="max-md:hidden"></div>
-      <div className="lg:px-10 md:px-5  mt-[74px] lg:mt-[130px]  lg:mb-[70px] w-full lg:max-w-[742px] md:max-w-[550px]">
-        <div className="w-full md:bg-card md:rounded-[20px] md:border border-solid border-[#E9E9E9]">
-          <div className="md:max-w-[446px]  max-w-[361px] md:my-[60px] mx-auto md:px-5 px-[5px]">
+      <div className="md:px-5  mt-[74px] lg:mt-[130px]  lg:mb-[70px]  md:mt-[80px]  md:mb-[40px]     w-full 2xl:max-w-[742px] xl:max-w-[600px]  md:max-w-[550px]">
+        <Card className="w-full md:bg-card bg-transparent border-0 md:rounded-[20px] md:border border-solid ">
+          <div className="md:max-w-[446px]  max-w-[361px] md:my-[60px] mx-auto  px-4">
             <h1 className="md:text-4xl text-2xl font-semibold text-black mb-[10px] text-center">
               Sign In
             </h1>
@@ -24,14 +25,14 @@ const LoginPage = () => {
             <LoginForm />
             <div className="flex items-center justify-center space-x-4 md:mb-6 mb-[60px]">
               <div className="w-full h-[1px] bg-cardstroke"></div>
-              <p className="text-gray-500  md:text-base text-sm">or</p>
+              <p className="text-darkgrey md:text-base text-sm">or</p>
               <div className="w-full h-[1px] bg-cardstroke"></div>
             </div>
             <h3 className="text-center text-black font-medium md:text-lg text-base  mb-6">
               Sign In with
             </h3>
             <div className="flex items-center space-x-4 justify-center">
-              <div className="w-12 h-12  md:w-[60px] md:h-[60px] rounded-full border border-solid border-gray-300 relative flex items-center justify-center">
+              <div className="w-12 h-12  md:w-[60px] md:h-[60px] rounded-full border border-solid border-lightgrey relative flex items-center justify-center">
                 <div className="flex md:max-w-[30px] md:max-h-[30px] max-w-6 max-h-6">
                   <Image
                     src={Google}
@@ -43,7 +44,7 @@ const LoginPage = () => {
                 </div>
               </div>
 
-              <div className="w-12 h-12   md:w-[60px] md:h-[60px] rounded-full border border-solid border-gray-300 relative flex items-center justify-center">
+              <div className="w-12 h-12   md:w-[60px] md:h-[60px] rounded-full border border-solid border-lightgrey relative flex items-center justify-center">
                 <div className="flex md:max-w-[30px] md:max-h-[30px] max-w-6 max-h-6">
                   <Image
                     src={Linkedin}
@@ -56,9 +57,9 @@ const LoginPage = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Card>
       </div>
-      <div className="max-md:hidden w-full h-[41px] border-t border-solid border-gray-300 mt-6 flex justify-center space-x-10 items-center">
+      <div className="max-md:hidden w-full h-[41px] border-t border-solid border-lightgrey  flex justify-center space-x-10 items-center">
         <span className="font-normal text-sm underline text-darkgrey cursor-pointer">
           Privacy Policy
         </span>
