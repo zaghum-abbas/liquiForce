@@ -4,20 +4,15 @@ import logo from "../../../public/images/generalLogo.png";
 import { ArrowStrokeLeft } from "../../../public/Icons";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import bottomLogo from "../../../public/images/splashScreen.png";
+import { Card } from "@/components/ui/card";
 const Authcard = ({ children, link, cardCenter }) => {
   const pathname = usePathname();
   return (
     <div
-      className={`flex flex-col md:justify-between    ${
-        cardCenter && "justify-between"
-      }   h-screen`}
-    >
-      {/* <div
       className={`flex flex-col  md:justify-between    ${
         cardCenter && "justify-between"
       }   h-screen`}
-    > */}
+    >
       <div>
         <div className="md:mt-[60px] md:ml-[80px] max-md:hidden">
           <Image src={logo} alt="Logo" width={193} height={48} />
@@ -36,11 +31,11 @@ const Authcard = ({ children, link, cardCenter }) => {
 
       {/* Main Content Section */}
       <div className="md:px-10 md:mt-[76px]  w-full md:max-w-[742px] max-w-[361px] mx-auto">
-        <div className="w-full md:bg-card md:rounded-[20px] md:border border-solid border-[#E9E9E9]">
+        <Card className="w-full md:bg-card bg-transparent md:rounded-[20px] md:border border-solid border-[#E9E9E9]">
           <div className="max-w-[446px] md:my-[60px] mx-auto md:px-5">
             {children}
           </div>
-        </div>
+        </Card>
       </div>
       <div></div>
     </div>

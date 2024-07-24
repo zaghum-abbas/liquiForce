@@ -3,7 +3,17 @@ import React, { useEffect, useState } from "react";
 import SharedComponent from "@/components/shared/splashScreen";
 
 import Splash from "./splashScreen";
-import LoginPage from "./login";
+import { AuthForm } from "@/components/shared/authForm";
+import LoginForm from "./form";
+
+const props = {
+  title: "Sign In",
+  desc1: "New user?",
+  desc2: "Create an Account",
+  link: "/join-us",
+  Form: LoginForm,
+};
+
 const Index = () => {
   const [step, setStep] = useState(() => {
     const storedStep = localStorage.getItem("step");
@@ -14,7 +24,7 @@ const Index = () => {
       case 0:
         return <Splash onNext={() => setStep(1)} />;
       case 1:
-        return <LoginPage />;
+        return <AuthForm {...props} />;
 
       default:
         return null;
@@ -27,7 +37,7 @@ const Index = () => {
     <div>
       <div className="grid md:grid-cols-2 grid-cols-1 min-h-screen max-md:hidden">
         <Splash />
-        <LoginPage />
+        <AuthForm {...props} />
       </div>
       <div className="md:hidden grid grid-cols-1">{callSteps()}</div>
     </div>

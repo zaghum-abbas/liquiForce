@@ -1,32 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Formik, Form } from "formik";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import * as Yup from "yup";
-import {
-  EmailIcon,
-  HideIcon,
-  LockIcon,
-  PersonIcon,
-  ShowIcon,
-} from "../../../public/Icons";
-import { Checkbox } from "@/components/ui/checkbox";
-import Link from "next/link";
+import { EmailIcon, PersonIcon } from "../../../public/Icons";
+import { useRouter } from "next/navigation";
 
 const SignupForm = () => {
+  const router = useRouter();
   const handleSubmit = (values, { setSubmitting }) => {
-    console.log(values);
+    router.push("/verification-code");
+    console.log("values", values);
     setSubmitting(false);
-  };
-  const handleShow = () => {
-    setShowPassword((pre) => !pre);
   };
 
   return (
     <Formik
-      initialValues={{ email: "", password: "" }}
-      validationSchema={LoginSchema}
+      initialValues={{ first_name: "", last_name: "", email: "" }}
+      validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
       {({ isSubmitting, handleChange, errors, touched }) => (
@@ -38,7 +30,7 @@ const SignupForm = () => {
             <Input
               type="text"
               name="first_name"
-              error={touched.email && errors.email}
+              error={touched.first_name && errors.first_name}
               placeholder="First name"
               className="w-full pl-14"
               onChange={handleChange}
@@ -51,7 +43,7 @@ const SignupForm = () => {
             <Input
               type="text"
               name="last_name"
-              error={touched.email && errors.email}
+              error={touched.last_name && errors.last_name}
               placeholder="Last name"
               className="w-full pl-14"
               onChange={handleChange}
@@ -70,25 +62,26 @@ const SignupForm = () => {
               onChange={handleChange}
             />
           </div>
-          <Link href={"/verification-code"}>
-            <Button
-              type="submit"
-              className="w-full bg-primary mb-[60px] "
-              disabled={isSubmitting}
-              variant="outline"
-              size="sm"
-            >
-              Continue
-            </Button>
-          </Link>
+          {/* <Link href={"/verification-code"}> */}
+          <Button
+            type="submit"
+            className="w-full bg-primary mb-[60px] "
+            // disabled={isSubmitting}
+            variant="outline"
+            size="sm"
+          >
+            Continue
+          </Button>
+          {/* </Link> */}
         </Form>
       )}
     </Formik>
   );
 };
 
-const LoginSchema = Yup.object().shape({
+const validationSchema = Yup.object().shape({
+  first_name: Yup.string().required("First name required"),
+  last_name: Yup.string().required("Last name required"),
   email: Yup.string().required("Email required"),
-  password: Yup.string().required("Password required"),
 });
 export default SignupForm;

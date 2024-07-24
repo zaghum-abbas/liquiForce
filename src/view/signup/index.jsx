@@ -1,8 +1,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import SharedComponent from "@/components/shared/splashScreen";
-import SignupPage from "./signup";
 import Splash from "./splashScreen";
+import { AuthForm } from "@/components/shared/authForm";
+import SignupForm from "./form";
+const props = {
+  title: "Register",
+  desc1: "Already a user?",
+  desc2: "Sign In",
+  link: "/login",
+  Form: SignupForm,
+};
 const Index = () => {
   const [step, setStep] = useState(0);
 
@@ -11,10 +18,9 @@ const Index = () => {
       case 0:
         return (
           <div>
-            <SignupPage />
+            <AuthForm {...props} />
           </div>
         );
-
       default:
         return null;
     }
@@ -24,7 +30,7 @@ const Index = () => {
     <div>
       <div className="grid md:grid-cols-2 grid-cols-1 min-h-screen max-md:hidden">
         <Splash />
-        <SignupPage />
+        <AuthForm {...props} />
       </div>
       <div className="md:hidden grid grid-cols-1">{callSteps()}</div>
     </div>
