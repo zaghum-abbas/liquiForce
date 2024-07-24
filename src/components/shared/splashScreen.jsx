@@ -9,12 +9,12 @@ const SharedComponent = ({ children }) => {
       <div className="flex flex-col justify-between md:h-full min-h-screen ">
         {/* Logo */}
 
-        <div className="xl:mt-[60px] xl:ml-[80px] lg:mt-[40px] lg:ml-[60px]  max-md:self-center max-md:mt-[100px]">
+        <div className="xl:mt-[60px] px-5 xl:ml-[80px] lg:mt-[40px] lg:ml-[60px]  max-md:self-center max-md:mt-[100px]">
           <Image src={logo} alt="Logo" width={193} height={48} />
         </div>
 
         {/* Main Text Section */}
-        {children}
+        <div className="px-5">{children}</div>
         {/* Bottom Image */}
 
         <Image

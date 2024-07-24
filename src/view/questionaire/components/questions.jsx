@@ -2,11 +2,10 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -16,32 +15,43 @@ const Questions = ({
   options,
   questionTitle,
   questionBody,
-  isOk,
+  updateValues,
   error,
   type,
+  values,
+  clearError,
 }) => {
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState(values[questionTitle]);
   const [checked, setChecked] = useState([]);
 
+  useEffect(() => {
+    if (type === "checkboxes" && values[questionTitle]) {
+      setChecked(values[questionTitle]);
+    }
+  }, [values, questionTitle, type]);
+
   const handleClicked = (index, text) => {
-    setSelected(index);
+    setSelected(text);
     if (text !== "") {
-      isOk((prevValues) => ({
-        ...prevValues,
-        questionOne: text,
-      }));
+      clearError();
+      updateValues(questionTitle, text);
     }
   };
 
-  const handleCardClick = (index) => {
-    if (checked.includes(index)) {
-      setChecked(checked.filter((i) => i !== index));
+  const handleCardClick = (text) => {
+    let newChecked;
+    if (checked.includes(text)) {
+      newChecked = checked.filter((i) => i !== text);
     } else {
-      setChecked([...checked, index]);
+      newChecked = [...checked, text];
     }
+    clearError();
+    setChecked(newChecked);
+    updateValues(questionTitle, newChecked);
   };
+
   return (
-    <>
+    <div className="relative">
       <CardHeader>
         <CardTitle className={cn("text-xl", !content && "md:mb-[60px]")}>
           {title}
@@ -59,7 +69,6 @@ const Questions = ({
           {questionBody}
         </p>
       </CardHeader>
-
       <CardContent
         className={cn(
           "md:flex md:justify-between block",
@@ -74,51 +83,51 @@ const Questions = ({
               questionTitle === "Question 2" || questionTitle === "Question 3"
                 ? "md:w-[300px]  md:flex-col md:justify-center"
                 : "md:w-[195px] md:flex-col md:justify-center",
-
-              type === "card" && selected === index
+              type === "card" && selected === item.text
                 ? "bg-primary"
-                : checked.includes(index)
+                : checked.includes(item.text)
                 ? "border-2 border-secondary bg-white"
                 : "bg-white"
             )}
-            onClick={() => handleClicked(index, item.text)}
+            onClick={() =>
+              type === "card"
+                ? handleClicked(index, item.text)
+                : handleCardClick(item.text)
+            }
           >
             {type === "card" ? (
               <React.Fragment>
-                <item.icon color={selected === index ? "#7DA8FF" : "#001E54"} />
+                <item.icon
+                  color={selected === item.text ? "#7DA8FF" : "#001E54"}
+                />
                 <CardDescription
                   className={cn(
                     "font-medium md:mt-[16px] text-base md:text-center text-start",
-                    selected === index ? "text-white" : "text-black"
+                    selected === item.text ? "text-white" : "text-black"
                   )}
                 >
                   {item.text}
                 </CardDescription>
               </React.Fragment>
             ) : (
-              <div
-                className="flex justify-between w-full"
-                onClick={() => handleCardClick(index)}
-              >
+              <div className="flex justify-between w-full">
                 <div className="flex items-center gap-[10px]">
-                  <Checkbox checked={checked.includes(index)} />
-                  <CardDescription
-                    className={cn(
-                      "md:font-medium text-base text-start",
-                      checked.includes(index) ? "text-primary" : "text-black"
-                    )}
-                  >
+                  <Checkbox checked={checked.includes(item.text)} />
+                  <CardDescription className="font-medium text-base text-black">
                     {item.text}
                   </CardDescription>
                 </div>
-                <item.icon />
+                <item.icon color={"#001E54"} />
               </div>
             )}
           </Card>
         ))}
       </CardContent>
-      <p className="text-red-500 text-sm mt-2 md:text-center">{error}</p>
-    </>
+      <div className="text-red-500 text-sm mx-auto inset-x-0  max-w-max mt-2 absolute">
+        {error}
+      </div>
+    </div>
   );
 };
+
 export default Questions;
