@@ -3,7 +3,7 @@ import Image from "next/legacy/image";
 
 const Congratulations = () => {
   return (
-    <Authcard>
+    <AuthCard>
       <div className="flex flex-col items-center">
         <Image src={congratulationsImage} height={112} width={112} />
         <h1 className="md:text-4xl text-2xl font-semibold text-black mb-[10px] text-center  md:mt-6 mt-[10px]">

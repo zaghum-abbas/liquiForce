@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 const EmailVerified = () => {
   return (
-    <Authcard link={"/email-verified"} cardCenter={true}>
+    <AuthCard link={"/email-verified"} cardCenter={true}>
       <div className="flex flex-col items-center">
         <Image src={emailVerifiedImage} height={112} width={112} />
         <h1 className="md:text-4xl text-2xl font-semibold text-black mb-[10px] text-center  md:mt-[31px] mt-[17px]">

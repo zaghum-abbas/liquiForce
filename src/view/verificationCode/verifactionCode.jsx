@@ -21,7 +21,7 @@ const VerificationCode = () => {
   return emailVerified ? (
     <EmailVerified />
   ) : (
-    <Authcard link={"/forgot_password"}>
+    <AuthCard link={"/forgot_password"}>
       <h1 className="md:text-4xl text-2xl font-semibold text-black mb-[10px] text-center">
         Verification Code
       </h1>

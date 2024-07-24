@@ -1,5 +1,5 @@
 "use client";
-import Authcard from "@/components/shared/authCard";
+import AuthCard from "@/components/shared/authCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Form, Formik } from "formik";
@@ -16,7 +16,7 @@ const RecoverPassword = () => {
     console.log("values", values);
   };
   return (
-    <Authcard link={"/login"}>
+    <AuthCard link={"/login"}>
       <h1 className="md:text-4xl text-2xl font-semibold text-black mt-[5px] mb-[16px] text-center">
         Forgotten Password
       </h1>
@@ -55,7 +55,7 @@ const RecoverPassword = () => {
           </Form>
         )}
       </Formik>
-    </Authcard>
+    </AuthCard>
   );
 };
 const validationSchema = Yup.object({

@@ -109,7 +109,7 @@ const CreateAccountPage = () => {
   });
 
   return (
-    <Authcard>
+    <AuthCard>
       <h1 className="md:text-4xl text-2xl font-semibold text-black mb-[10px] text-center">
         Create Username & Password
       </h1>
