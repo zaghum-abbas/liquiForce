@@ -1,4 +1,4 @@
-import Authcard from "@/components/shared/authCard";
+import AuthCard from "@/components/shared/authCard";
 import Image from "next/legacy/image";
 import emailVerifiedImage from "../../../public/images/verifiedEmail.png";
 import { Button } from "@/components/ui/button";
@@ -25,7 +25,7 @@ const EmailVerified = () => {
         </Button>
         {/* </Link> */}
       </div>
-    </Authcard>
+    </AuthCard>
   );
 };
 export default EmailVerified;

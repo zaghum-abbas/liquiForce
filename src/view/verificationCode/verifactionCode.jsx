@@ -1,15 +1,24 @@
 "use client";
-import Authcard from "@/components/shared/authCard";
+import AuthCard from "@/components/shared/authCard";
 import { Button } from "@/components/ui/button";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import PinInput from "react-pin-input";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EmailVerified from "./emailVerified";
+import { createWindowResizeHandler } from "@/lib/utils/utils";
 const VerificationCode = () => {
   const router = useRouter();
   const [emailVerified, setEmailVerified] = useState(false);
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const cleanup = createWindowResizeHandler(setWindowWidth);
+    return cleanup;
+  }, []);
+
   const handleSubmit = (values, { setSubmitting }) => {
     // router.push("/reset-password");
     setTimeout(() => {
@@ -60,13 +69,9 @@ const VerificationCode = () => {
                 }}
                 inputStyle={{
                   borderColor:
-                    errors.pin && touched.pin
-                      ? "#ff6666"
-                      : // : values?.pin?.length === 5
-                        // ? "red"
-                        "#D6D6D6",
-                  width: "65.2px",
-                  height: "67px",
+                    errors.pin && touched.pin ? "#ff6666" : "#D6D6D6",
+                  width: windowWidth > 667 ? "66px" : "56px",
+                  height: windowWidth > 667 ? "66px" : "56px",
                   borderWidth: "1px",
                   borderRadius: "14px",
                   fontSize: "14px",
@@ -108,7 +113,7 @@ const VerificationCode = () => {
           </Form>
         )}
       </Formik>
-    </Authcard>
+    </AuthCard>
   );
 };
 export default VerificationCode;

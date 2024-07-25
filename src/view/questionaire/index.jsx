@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { ArrowForwardIcon, ArrowBackIcon } from "../../../public/Icons";
 import { useState } from "react";
 import { steps } from "./components/steps";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import QuestionnaireCompleted from "./components/questionnaireCompleted";
 
 const QuestionairePage = () => {

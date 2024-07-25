@@ -1,5 +1,5 @@
 "use client";
-import Authcard from "@/components/shared/authCard";
+import AuthCard from "@/components/shared/authCard";
 import { Button } from "@/components/ui/button";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
@@ -13,13 +13,40 @@ import {
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
+import ReCaptcha from "@/components/shared/captcha";
 
 const CreateAccountPage = () => {
   const [passwordStrength, setPasswordStrength] = useState(0);
   const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
-  const [usernameValid, setUsernameValid] = useState(null); // null: not validated, true: valid, false: invalid
-  const customName = "zaghum"; // Replace with your custom name
+  const [usernameValid, setUsernameValid] = useState(null);
+
+  const [callback, setCallback] = useState("not fired");
+  const [value, setValue] = useState("[empty]");
+  const [expired, setExpired] = useState("false");
+  const customName = "zaghum";
+
+  const validationSchema = Yup.object().shape({
+    user_name: Yup.string()
+      .required("Username is required")
+      .test(
+        "match-custom-name",
+        "Username does not match the custom name",
+        (value) => value === customName
+      ),
+    new_password: Yup.string()
+      .required("Password is required")
+      .min(4, "Password must be at least 8 characters long")
+      .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+      .matches(/[0-9]/, "Password must contain at least one number")
+      .matches(
+        /[^a-zA-Z0-9]/,
+        "Password must contain at least one special character"
+      ),
+    confirm_password: Yup.string()
+      .oneOf([Yup.ref("new_password"), null], "Passwords must match")
+      .required("Confirm Password is required"),
+  });
 
   const calculatePasswordStrength = (password) => {
     let strength = 0;
@@ -80,34 +107,23 @@ const CreateAccountPage = () => {
 
   const handleUsernameChange = (event, handleChange) => {
     const { value } = event.target;
-    setUsernameValid(value === customName);
-    handleChange(event);
+    if (value) {
+      console.log("value", value === customName);
+      setUsernameValid(value === customName);
+      handleChange(event);
+    }
   };
 
   const strengthText = getStrengthText(passwordStrength);
 
-  const validationSchema = Yup.object().shape({
-    user_name: Yup.string()
-      .required("Username is required")
-      .test(
-        "match-custom-name",
-        "Username does not match the custom name",
-        (value) => value === customName
-      ),
-    new_password: Yup.string()
-      .required("Password is required")
-      .min(4, "Password must be at least 8 characters long")
-      .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
-      .matches(/[0-9]/, "Password must contain at least one number")
-      .matches(
-        /[^a-zA-Z0-9]/,
-        "Password must contain at least one special character"
-      ),
-    confirm_password: Yup.string()
-      .oneOf([Yup.ref("new_password"), null], "Passwords must match")
-      .required("Confirm Password is required"),
-  });
+  const handleCaptchaChange = (value) => {
+    setValue(value);
+    if (value === null) setExpired("true");
+  };
 
+  const handleScriptLoad = () => {
+    setCallback("called!");
+  };
   return (
     <AuthCard>
       <h1 className="md:text-4xl text-2xl font-semibold text-black mb-[10px] text-center">
@@ -137,11 +153,11 @@ const CreateAccountPage = () => {
                 error={touched.user_name && errors.user_name}
                 placeholder="Username"
                 className={`w-full pl-14 ${
-                  usernameValid === null
-                    ? ""
+                  usernameValid === null && usernameValid === false
+                    ? "border-lightgrey focus:border-lightgrey"
                     : usernameValid
-                    ? "border-green-500"
-                    : "border-red-500"
+                    ? "focus:border-positive"
+                    : "focus:border-negative"
                 }`}
                 onChange={(event) => handleUsernameChange(event, handleChange)}
               />
@@ -153,11 +169,6 @@ const CreateAccountPage = () => {
                   />
                 )}
               </div>
-              {/* 
-              <div className="text-red-500 mt-1">
-                {usernameValid === false &&
-                  "Name does not match the custom name."}
-              </div> */}
             </div>
 
             <div className="mb-[10px] relative">
@@ -169,7 +180,7 @@ const CreateAccountPage = () => {
                 name="new_password"
                 // error={touched.password && errors.password}
                 placeholder="New password"
-                className="w-full pl-14 border-primary"
+                className="w-full pl-14"
                 onChange={(event) => handlePasswordChange(event, handleChange)}
               />
               <div
@@ -249,9 +260,13 @@ const CreateAccountPage = () => {
               </label>
             </div>
 
+            <ReCaptcha
+              onChange={handleCaptchaChange}
+              onScriptLoad={handleScriptLoad}
+            />
             <Button
               type="submit"
-              className="w-full bg-primary mb-6"
+              className="w-full bg-primary  md:mt-[60px] mt-[48px]"
               variant="outline"
               size="sm"
               // disabled={isSubmitting}
@@ -261,7 +276,7 @@ const CreateAccountPage = () => {
           </Form>
         )}
       </Formik>
-    </Authcard>
+    </AuthCard>
   );
 };
 

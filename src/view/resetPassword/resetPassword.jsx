@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Authcard from "@/components/shared/authCard";
+import AuthCard from "@/components/shared/authCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Form, Formik } from "formik";
@@ -9,8 +9,13 @@ import { HideIcon, LockIcon, ShowIcon } from "../../../public/Icons";
 import congratulationsImage from "../../../public/images/congratulations.png";
 import Image from "next/legacy/image";
 import Congratulations from "./congratulations";
+import ReCaptcha from "@/components/shared/captcha";
 
 const ResetPassword = () => {
+  const [callback, setCallback] = useState("not fired");
+  const [value, setValue] = useState("[empty]");
+  const [expired, setExpired] = useState("false");
+
   const [passwordStrength, setPasswordStrength] = useState(0);
   const [showPassword, setShowPassword] = useState(false);
   const [congratulations, setCongratulations] = useState(false);
@@ -57,15 +62,26 @@ const ResetPassword = () => {
   };
 
   const handleSubmit = (values, { setSubmitting }) => {
+    console.log("congratulations", congratulations);
+    setCongratulations(true);
     setTimeout(() => {
-      setCongratulations(true);
       setSubmitting(false);
     }, 1000);
   };
   const handleShow = () => {
     setShowPassword((pre) => !pre);
   };
+
+  const handleCaptchaChange = (value) => {
+    setValue(value);
+    if (value === null) setExpired("true");
+  };
+
+  const handleScriptLoad = () => {
+    setCallback("called!");
+  };
   const strengthText = getStrengthText(passwordStrength);
+  console.log("congratulations", congratulations);
   return congratulations ? (
     <Congratulations />
   ) : (
@@ -78,7 +94,7 @@ const ResetPassword = () => {
       </p>
       <Formik
         initialValues={{ new_password: "", confirm_password: "" }}
-        validationSchema={validationSchema}
+        // validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
         {({ isSubmitting, handleChange, values, errors, touched }) => (
@@ -92,7 +108,7 @@ const ResetPassword = () => {
                 name="new_password"
                 // error={touched.password && errors.password}
                 placeholder="New password"
-                className="w-full pl-14 border-primary"
+                className="w-full pl-14 "
                 onChange={(event) => handlePasswordChange(event, handleChange)}
               />
             </div>
@@ -101,7 +117,7 @@ const ResetPassword = () => {
                 {[...Array(3)].map((_, index) => (
                   <div
                     key={index}
-                    className={`md:w-[61.33px] w-[47.17px]  h-1 rounded-full mx-1 ${
+                    className={`md:w-[62px] w-[48px]  h-1 rounded-full mx-1 ${
                       index < passwordStrength
                         ? getStrengthColor(passwordStrength)
                         : "bg-lightgrey"
@@ -152,9 +168,14 @@ const ResetPassword = () => {
             <p className="text-black mb-5">
               Please check the box for verification
             </p>
+
+            {/* <ReCaptcha
+              onChange={handleCaptchaChange}
+              onScriptLoad={handleScriptLoad}
+            /> */}
             <Button
               type="submit"
-              className="w-full bg-primary mb-6"
+              className="w-full bg-primary mb-6 md:mt-10 mt-[48px]"
               variant="outline"
               size="sm"
               //   disabled={isSubmitting}
@@ -164,7 +185,7 @@ const ResetPassword = () => {
           </Form>
         )}
       </Formik>
-    </Authcard>
+    </AuthCard>
   );
 };
 

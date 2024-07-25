@@ -3,44 +3,36 @@ import { ArrowStrokeLeft } from "../../../public/Icons";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { BlueLogo } from "./logo";
-const Authcard = ({ children, link, cardCenter }) => {
+const AuthCard = ({ children, link, cardCenter }) => {
   const pathname = usePathname();
   return (
     <div
-      className={`flex flex-col md:justify-between    ${
+      className={`md:flex items-center md:pt-[217px] pt-[110px] justify-center relative  ${
         cardCenter && "justify-between"
-      }   h-screen`}
+      }   min-h-screen`}
     >
-      {/* <div
-      className={`flex flex-col  md:justify-between    ${
-        cardCenter && "justify-between"
-      }   h-screen`}
-    > */}
-      <div>
+      <div className="absolute top-0 left-0 w-full">
         <BlueLogo />
-        {pathname === "/reset-password" ||
-          (pathname === "/email-verified" ? (
-            ""
-          ) : (
-            // <Link href={link}>
-            <div className="md:w-8 md:h-8 w-6 h-6 md:ml-[80px] md:mt-[60px] ml-[16px] mt-[70px] border border-solid rounded-[20px] border-cardstroke flex justify-center items-center cursor-pointer">
-              <ArrowStrokeLeft />
-            </div>
-            // </Link>
-          ))}
+        {/* {pathname === "/reset-password" || pathname === "/email-verified" ? (
+          ""
+        ) : ( */}
+        <div className="md:w-8 md:h-8 w-6 h-6 2xl:ml-[80px] lg:mt-[60px] lg:ml-[60px] md:mt-[40px] md:ml-[50px] mt-[70px]  ml-[16px] border border-solid rounded-[20px] border-cardStroke flex justify-center items-center cursor-pointer">
+          <ArrowStrokeLeft />
+        </div>
+        {/* )} */}
       </div>
 
-      {/* Main Content Section */}
-      <div className="md:px-10 md:mt-[76px]  w-full md:max-w-[742px] max-w-[361px] mx-auto">
+      <div className="w-full md:mt-[76px] md:max-w-[742px] max-w-[361px] mx-auto ">
         <div className="w-full md:bg-card md:rounded-[20px] md:border border-solid border-[#E9E9E9]">
-          <div className="max-w-[446px] md:my-[60px] mx-auto md:px-5">
+          <div className="max-w-[446px] md:my-[60px] mx-auto md:px-5 py-6">
             {children}
           </div>
         </div>
       </div>
+
       <div></div>
     </div>
   );
 };
 
-export default Authcard;
+export default AuthCard;
