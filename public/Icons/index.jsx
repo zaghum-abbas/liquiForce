@@ -155,7 +155,7 @@ export const PersonIcon = () => {
     </svg>
   );
 };
-export const TickIcon = () => {
+export const Step = () => {
   return (
     <svg
       width="24"
@@ -687,5 +687,34 @@ const ArrowForwardIcon = () => {
     </svg>
   );
 };
-
-export { HideIcon, ArrowForwardIcon, ArrowBackIcon };
+const StepTickIcon = () => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="16" height="16" rx="8" fill="#7DA8FF" />
+      <rect width="16" height="16" rx="8" fill="black" fill-opacity="0.2" />
+      <path
+        d="M4 7.62066L6.62273 11.1998L12 4.7998"
+        stroke="white"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <rect
+        x="0.5"
+        y="0.5"
+        width="15"
+        height="15"
+        rx="7.5"
+        stroke="white" /* Change color as needed */
+        stroke-width="2" /* Change width as needed */
+      />
+    </svg>
+  );
+};
+export { HideIcon, ArrowForwardIcon, ArrowBackIcon, StepTickIcon };

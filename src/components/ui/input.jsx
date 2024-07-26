@@ -7,7 +7,7 @@ const Input = React.forwardRef(({ className, type, error, ...props }, ref) => {
       <input
         type={type}
         className={cn(
-          "flex  w-full rounded-[14px] border border-solid  py-4 pr-4 lg:py-5 md:pr-5 lg:text-lg text-base placeholder:text-darkgrey  focus:border-primary   focus-visible:outline-none",
+          "flex  w-full rounded-[14px] border border-solid  p-4 lg:py-5 md:pr-5 lg:text-lg text-base placeholder:text-darkgrey  focus:border-primary   focus-visible:outline-none",
           error ? "border-negative" : "border-lightgrey",
           className
         )}

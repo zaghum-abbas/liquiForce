@@ -32,7 +32,8 @@ module.exports = {
         negative: "var(--negative)",
         medium: "hsla(var(--medium))",
         positive: "hsla(var(--positive))",
-        secondarybutton: {
+        backgroundColor: "hsla(var(--background-color))",
+        secondaryButton: {
           DEFAULT: "hsla(var(--secondary-button))",
         },
         primary: {
@@ -65,6 +66,11 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+
+      backgroundImage: {
+        "secondary-gradient":
+          "linear-gradient(0deg, #7DA8FF, #7DA8FF), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))",
       },
       borderRadius: {
         lg: "var(--radius)",

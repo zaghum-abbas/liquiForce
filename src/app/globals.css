@@ -14,6 +14,7 @@ body {
     --dark-grey: #7b7b7b;
     --secondary-button: 0, 0%, 96%, 1;
     --background: 0 0% 100%;
+    --background-color: 217, 100%, 98%, 1;
     --negative: #ff6666;
     --medium: 36, 100%, 56%, 1;
     --positive: 124, 42%, 57%, 1;
@@ -74,9 +75,9 @@ body {
 }
 
 @layer base {
-  * {
+  /* * {
     @apply border-border;
-  }
+  } */
   body {
     @apply bg-background text-foreground;
   }

@@ -66,15 +66,16 @@ const QuestionnairePage = () => {
         <Card className="w-full xl:p-[60px] lg:p-11 md:p-5  mx-auto py-5 px-4">
           <div className="max-md:block flex items-center justify-between">
             <div
-              className={`max-md:hidden text-darkgrey md:w-9 md:h-9 w-6 h-6 border-2 border-solid rounded-[20px] border-cardStroke flex items-center justify-center cursor-pointer ${
+              className={cn(
+                "max-md:hidden text-darkgrey md:w-9 md:h-9 w-6 h-6 border-2 border-solid rounded-[20px] border-cardStroke flex items-center justify-center cursor-pointer",
                 activeStep === 0 ? "" : "hover:text-white hover:bg-primary"
-              }`}
+              )}
               onClick={handleBack}
             >
               <button
-                className={`${
+                className={cn(
                   activeStep === 0 ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+                )}
                 disabled={activeStep === 0}
               >
                 <ArrowBackIcon className="w-[6px] h-3" />
@@ -127,19 +128,20 @@ const QuestionnairePage = () => {
               )}
             </div>
             <div
-              className={`max-md:hidden text-darkgrey md:w-9 md:h-9 w-6 h-6 border-2 border-solid rounded-[20px] border-cardStroke flex items-center justify-center cursor-pointer ${
+              className={cn(
+                "max-md:hidden text-darkgrey md:w-9 md:h-9 w-6 h-6 border-2 border-solid rounded-[20px] border-cardStroke flex items-center justify-center cursor-pointer",
                 activeStep === steps.length - 1
                   ? ""
                   : "hover:text-white hover:bg-primary"
-              }`}
+              )}
               onClick={handleNext}
             >
               <button
-                className={`${
+                className={cn(
                   activeStep === steps.length - 1
                     ? "opacity-50 cursor-not-allowed"
                     : ""
-                }`}
+                )}
                 disabled={activeStep === steps.length - 1}
               >
                 <ArrowForwardIcon className="w-[6px] h-3" />

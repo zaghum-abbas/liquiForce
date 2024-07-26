@@ -6,7 +6,7 @@ export const Questionnaire = ({ children, link, cardCenter }) => {
     <div className={`flex flex-col justify-between h-screen`}>
       <div className="xl:mt-[60px] xl:ml-[80px] lg:mt-[60px] lg:ml-[70px] md:mt-[50px] md:ml-[60px]  max-md:hidden">
         <Image
-          src={"images/splashScreen.png"}
+          src={"/images/generalLogo.png"}
           alt="Logo"
           width={193}
           height={48}
@@ -16,8 +16,8 @@ export const Questionnaire = ({ children, link, cardCenter }) => {
       {children}
 
       <div
-      // className="flex sm:max-h-[261px] max-h-[80px]"
-      // style={{ display: "contents" }}
+        className="flex md:h-[261px] h-[80px]"
+        style={{ display: "contents" }}
       >
         <Image
           src={"/images/splashScreen.png"}
