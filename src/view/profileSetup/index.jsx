@@ -38,11 +38,10 @@ export const ProfileSetup = () => {
             <Button
               className={cn(
                 activeStep === 1
-                  ? "bg-red-600 text-lightgrey rounded-[14px] px-10 py-2 border border-solid border-cardStroke  cursor-not-allowed"
-                  : //   ? "bg-backgroundColor text-lightgrey rounded-[14px] px-10 py-2 border border-solid border-cardStroke  cursor-not-allowed"
-                    "px-10 py-2 bg-red-300"
+                  ? "bg-backgroundColor text-lightgrey rounded-[14px] px-10 py-2 border border-solid border-cardStroke  cursor-not-allowed"
+                  : "px-10 py-2 border-darkgrey bg-secondaryButton text-darkgrey"
               )}
-              disabled={activeStep === 1}
+              //   disabled={activeStep === 1}
               onClick={handleBack}
             >
               Back
