@@ -1,4 +1,4 @@
-import CreateAccountPage from "@/view/createAccount/createAccount";
+import { CreateAccountPage } from "@/view/auth";
 
 const CreateAccount = () => {
   return <CreateAccountPage />;

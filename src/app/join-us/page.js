@@ -1,4 +1,4 @@
-import JoinUs from "@/view/joinUs/joinUs";
+import { JoinUs } from "@/view/auth";
 
 const Join = () => {
   return <JoinUs />;

@@ -4,7 +4,7 @@ import { Formik, Form } from "formik";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import * as Yup from "yup";
-import { EmailIcon, PersonIcon } from "../../../public/Icons";
+import { EmailIcon, PersonIcon } from "../../../../public/Icons";
 import { useRouter } from "next/navigation";
 
 const SignupForm = () => {

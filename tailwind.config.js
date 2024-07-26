@@ -39,7 +39,7 @@ module.exports = {
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",
         },
-        cardstroke: "hsl(var(--card-stroke))",
+        cardStroke: "hsl(var(--card-stroke))",
 
         secondary: {
           DEFAULT: "hsl(var(--secondary))",

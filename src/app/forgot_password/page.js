@@ -1,4 +1,4 @@
-import RecoverPassword from "@/view/forgotPassword/forgotPassword";
+import { RecoverPassword } from "@/view/auth";
 
 const ForgotPassword = () => {
   return <RecoverPassword />;

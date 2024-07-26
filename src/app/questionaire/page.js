@@ -1,6 +1,7 @@
-import QuestionairePage from "@/view/questionaire";
+import { QuestionnairePage } from "@/view/auth";
 
-const Questionaire = () => {
-  return <QuestionairePage />;
+const Questionnaire = () => {
+  return <QuestionnairePage />;
 };
-export default Questionaire;
+
+export default Questionnaire;

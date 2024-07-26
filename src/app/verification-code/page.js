@@ -1,4 +1,4 @@
-import VerificationCode from "@/view/verificationCode/verifactionCode";
+import { VerificationCode } from "@/view/auth";
 
 const VerifyCode = () => {
   return <VerificationCode />;

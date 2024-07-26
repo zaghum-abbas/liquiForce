@@ -10,7 +10,7 @@ const props = {
   link: "/login",
   Form: SignupForm,
 };
-const Index = () => {
+const SignUp = () => {
   const [step, setStep] = useState(0);
 
   const callSteps = () => {
@@ -37,4 +37,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export { SignUp };

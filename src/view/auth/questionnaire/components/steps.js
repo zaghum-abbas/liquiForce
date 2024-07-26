@@ -13,8 +13,8 @@ import {
   TimeIcon,
   TrainedWorkerIcon,
   TrendingIcon,
-} from "../../../../public/Icons";
-import Questions from "./questions";
+} from "../../../../../public/Icons";
+import { Questions } from "./questions";
 
 export const steps = [
   {

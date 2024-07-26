@@ -5,9 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import { HideIcon, LockIcon, ShowIcon } from "../../../public/Icons";
-import congratulationsImage from "../../../public/images/congratulations.png";
-import Image from "next/legacy/image";
+import { HideIcon, LockIcon, ShowIcon } from "../../../../public/Icons";
 import Congratulations from "./congratulations";
 import ReCaptcha from "@/components/shared/captcha";
 
@@ -169,10 +167,10 @@ const ResetPassword = () => {
               Please check the box for verification
             </p>
 
-            {/* <ReCaptcha
+            <ReCaptcha
               onChange={handleCaptchaChange}
               onScriptLoad={handleScriptLoad}
-            /> */}
+            />
             <Button
               type="submit"
               className="w-full bg-primary mb-6 md:mt-10 mt-[48px]"
@@ -204,4 +202,4 @@ const validationSchema = Yup.object().shape({
     .required("Confirm Password is required"),
 });
 
-export default ResetPassword;
+export { ResetPassword };

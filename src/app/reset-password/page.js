@@ -1,4 +1,4 @@
-import ResetPassword from "@/view/resetPassword/resetPassword";
+import { ResetPassword } from "@/view/auth";
 
 const ForgotPassword = () => {
   return <ResetPassword />;

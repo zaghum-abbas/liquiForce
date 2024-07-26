@@ -9,7 +9,7 @@ import {
   PersonIcon,
   ShowIcon,
   TickIcon,
-} from "../../../public/Icons";
+} from "../../../../public/Icons";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -280,4 +280,4 @@ const CreateAccountPage = () => {
   );
 };
 
-export default CreateAccountPage;
+export { CreateAccountPage };

@@ -1,6 +1,6 @@
 import SharedComponent from "@/components/shared/splashScreen";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import Image from "next/legacy/image";
 import Link from "next/link";
 const JoinUs = () => {
@@ -49,7 +49,7 @@ const JoinUs = () => {
             </div>
 
             <div className="max-h-[100px]">
-              <div className="h-[2px] bg-cardstroke max-w-[143.5px] md:max-w-full mx-auto" />
+              <div className="h-[2px] bg-cardStroke max-w-[143.5px] md:max-w-full mx-auto" />
               <p className="md:text-xl text-base font-semibold text-black text-center mt-6 md:mb-[47px] mb-[35px]">
                 As a Worker
               </p>
@@ -71,4 +71,4 @@ const JoinUs = () => {
     </SharedComponent>
   );
 };
-export default JoinUs;
+export { JoinUs };

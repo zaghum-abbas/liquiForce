@@ -1,4 +1,3 @@
-import Questionnaire from "@/components/shared/Questionnaire";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,8 +7,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ArrowStrokeRight } from "../../../public/Icons";
-const InstructionsPage = () => {
+import { ArrowStrokeRight } from "../../../../public/Icons";
+import { Questionnaire } from "@/components/shared/questionnaire";
+export const InstructionsPage = () => {
   return (
     <Questionnaire>
       <div className="md:px-10 md:mt-[76px]  w-full xl:max-w-[870px] lg:max-w-[692px] md:max-w-[680px] max-w-[361px] mx-auto px-1">
@@ -55,4 +55,3 @@ const InstructionsPage = () => {
     </Questionnaire>
   );
 };
-export default InstructionsPage;

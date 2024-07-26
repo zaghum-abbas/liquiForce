@@ -20,9 +20,9 @@ export const AuthForm = ({ title, desc1, desc2, link, Form }) => {
             </p>
             <Form />
             <div className="flex items-center justify-center space-x-4 md:mb-6 mb-[60px]">
-              <div className="w-full h-[1px] bg-cardstroke"></div>
+              <div className="w-full h-[1px] bg-cardStroke"></div>
               <p className="text-darkgrey md:text-base text-sm">or</p>
-              <div className="w-full h-[1px] bg-cardstroke"></div>
+              <div className="w-full h-[1px] bg-cardStroke"></div>
             </div>
             <h3 className="text-center text-black font-medium md:text-lg text-base  mb-6">
               Sign In with

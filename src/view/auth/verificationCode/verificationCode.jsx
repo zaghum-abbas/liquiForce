@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import EmailVerified from "./emailVerified";
 import { createWindowResizeHandler } from "@/lib/utils/utils";
-const VerificationCode = () => {
+export const VerificationCode = () => {
   const router = useRouter();
   const [emailVerified, setEmailVerified] = useState(false);
 
@@ -116,4 +116,3 @@ const VerificationCode = () => {
     </AuthCard>
   );
 };
-export default VerificationCode;

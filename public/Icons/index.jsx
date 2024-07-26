@@ -1,4 +1,4 @@
-export const HideIcon = () => {
+const HideIcon = () => {
   return (
     <svg
       width="24"
@@ -648,7 +648,7 @@ export const ManageIcon = ({ color }) => {
     </div>
   );
 };
-export const ArrowBackIcon = () => {
+const ArrowBackIcon = () => {
   return (
     <svg
       width="8"
@@ -668,7 +668,7 @@ export const ArrowBackIcon = () => {
   );
 };
 
-export const ArrowForwardIcon = () => {
+const ArrowForwardIcon = () => {
   return (
     <svg
       width="8"
@@ -687,3 +687,5 @@ export const ArrowForwardIcon = () => {
     </svg>
   );
 };
+
+export { HideIcon, ArrowForwardIcon, ArrowBackIcon };

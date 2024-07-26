@@ -1,4 +1,4 @@
-import Questionnaire from "@/components/shared/questionnaire";
+import { Questionnaire } from "@/components/shared/questionnaire";
 
 const QuestionnaireCompleted = () => {
   return (

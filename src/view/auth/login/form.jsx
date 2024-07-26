@@ -4,11 +4,16 @@ import { Formik, Form } from "formik";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import * as Yup from "yup";
-import { EmailIcon, HideIcon, LockIcon, ShowIcon } from "../../../public/Icons";
+import {
+  EmailIcon,
+  HideIcon,
+  LockIcon,
+  ShowIcon,
+} from "../../../../public/Icons";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 
-const LoginForm = () => {
+export const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [checked, setChecked] = useState(false);
   const handleSubmit = (values, { setSubmitting }) => {
@@ -115,4 +120,3 @@ const LoginSchema = Yup.object().shape({
   email: Yup.string().required("Email required"),
   password: Yup.string().required("Password required"),
 });
-export default LoginForm;

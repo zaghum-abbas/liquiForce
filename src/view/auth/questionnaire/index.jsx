@@ -1,14 +1,14 @@
 "use client";
-import Questionnaire from "@/components/shared/questionnaire";
+import { Questionnaire } from "@/components/shared/questionnaire";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowForwardIcon, ArrowBackIcon } from "../../../public/Icons";
+import { ArrowForwardIcon, ArrowBackIcon } from "../../../../public/Icons";
 import { useState } from "react";
 import { steps } from "./components/steps";
 import { cn } from "@/lib/utils/utils";
 import QuestionnaireCompleted from "./components/questionnaireCompleted";
 
-const QuestionairePage = () => {
+const QuestionnairePage = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [isSubmit, setIsSubmit] = useState(0);
   const [values, setValues] = useState({});
@@ -66,7 +66,7 @@ const QuestionairePage = () => {
         <Card className="w-full xl:p-[60px] lg:p-11 md:p-5  mx-auto py-5 px-4">
           <div className="max-md:block flex items-center justify-between">
             <div
-              className={`max-md:hidden text-darkgrey md:w-9 md:h-9 w-6 h-6 border-2 border-solid rounded-[20px] border-cardstroke flex items-center justify-center cursor-pointer ${
+              className={`max-md:hidden text-darkgrey md:w-9 md:h-9 w-6 h-6 border-2 border-solid rounded-[20px] border-cardStroke flex items-center justify-center cursor-pointer ${
                 activeStep === 0 ? "" : "hover:text-white hover:bg-primary"
               }`}
               onClick={handleBack}
@@ -127,7 +127,7 @@ const QuestionairePage = () => {
               )}
             </div>
             <div
-              className={`max-md:hidden text-darkgrey md:w-9 md:h-9 w-6 h-6 border-2 border-solid rounded-[20px] border-cardstroke flex items-center justify-center cursor-pointer ${
+              className={`max-md:hidden text-darkgrey md:w-9 md:h-9 w-6 h-6 border-2 border-solid rounded-[20px] border-cardStroke flex items-center justify-center cursor-pointer ${
                 activeStep === steps.length - 1
                   ? ""
                   : "hover:text-white hover:bg-primary"
@@ -152,4 +152,4 @@ const QuestionairePage = () => {
   );
 };
 
-export default QuestionairePage;
+export { QuestionnairePage };

@@ -1,6 +1,7 @@
-import Index from "@/view/signup";
+import { SignUp } from "@/view/auth";
 
-const Signup = () => {
-  return <Index />;
+const SignupPage = () => {
+  return <SignUp />;
 };
-export default Signup;
+
+export default SignupPage;

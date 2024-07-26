@@ -1,5 +1,7 @@
-import Index from "@/view/login";
+import { Login } from "@/view/auth";
 
-export default function SignInPage() {
-  return <Index />;
-}
+const SignInPage = () => {
+  return <Login />;
+};
+
+export default SignInPage;

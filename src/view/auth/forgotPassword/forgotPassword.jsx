@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import { EmailIcon } from "../../../public/Icons";
+import { EmailIcon } from "../../../../public/Icons";
 import { useRouter } from "next/navigation";
 
 const RecoverPassword = () => {
@@ -62,4 +62,4 @@ const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email address").required("Email required"),
 });
 
-export default RecoverPassword;
+export { RecoverPassword };

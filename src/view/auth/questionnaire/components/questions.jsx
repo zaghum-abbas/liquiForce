@@ -130,4 +130,4 @@ const Questions = ({
   );
 };
 
-export default Questions;
+export { Questions };

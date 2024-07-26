@@ -1,4 +1,4 @@
-import InstructionsPage from "@/view/instructions/instructions";
+import { InstructionsPage } from "@/view/auth";
 
 const Instructions = () => {
   return <InstructionsPage />;
